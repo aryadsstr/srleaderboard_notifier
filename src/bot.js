@@ -76,36 +76,43 @@ client.on('interactionCreate', async interaction => {
     const results = [];
 
     for (const category of Object.values(tokenMap)) {
-      for (const token of category.tokens) {
+        for (const token of category.tokens) {
         const data = await getLeaderBoard(token);
 
-        data.runList.forEach((run, i) => {
-          const player = data.playerList.find(p => p.id === run.playerIds[0]);
-          if (!player) return;
-
-          if (player.areaId === 'id' && player.name.toLowerCase().includes(keyword)) {
-            results.push({
-              category: category.label,
-              rank: i + 1,
-              player: player.name,
-              run
-            });
-          }
+        const indonesianRuns = data.runList.filter(run => {
+            const player = data.playerList.find(p => p.id === run.playerIds[0]);
+            return player?.areaId === 'id';
         });
-      }
+
+        indonesianRuns.sort((a, b) => a.time - b.time);
+
+        indonesianRuns.forEach((run, i) => {
+            const player = data.playerList.find(p => p.id === run.playerIds[0]);
+            if (!player) return;
+
+            if (player.name.toLowerCase().includes(keyword)) {
+            results.push({
+                category: category.label,
+                rank: i + 1,
+                player: player.name,
+                run
+            });
+            }
+        });
+        }
     }
 
     if (!results.length) {
-      return interaction.editReply(`Runner **${keyword}** tidak ditemukan atau dia bukan berasal dari Indonesia`);
+        return interaction.editReply(`Runner **${keyword}** tidak ditemukan atau dia bukan berasal dari Indonesia`);
     }
 
     const resultsText = results.map(r => {
         const video = r.run.video ? `[INI GUYS VIDIONYA](<${r.run.video}>)` : 'No Video';
-        return `🎮 **${r.category}**\n🏆 Rank: #${r.rank}\n⏱ PB: ${formatTime(r.run.time)}\n⏱ IGT: ${formatTime(r.run.igt)}\n🎥 ${video}`;
+        return `🎮 **${r.category} INDONESIA**\n🏆 Rank: #${r.rank}\n⏱ PB: ${formatTime(r.run.time)}\n⏱ IGT: ${formatTime(r.run.igt)}\n🎥 ${video}`;
     });
 
     return paginate(interaction, resultsText, `🔍 Hasil Pencarian: ${keyword}`);
-  }
+    }
 });
 
 client.login(process.env.DISCORD_TOKEN);
