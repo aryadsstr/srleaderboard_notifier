@@ -2,14 +2,21 @@ require('dotenv').config();
 const { Client, GatewayIntentBits } = require('discord.js');
 const { getLeaderBoard } = require('./leaderboard');
 const { formatTime } = require('./helpers/timeFormat');
+const { paginate } = require('./helpers/paginateMessage');
 const tokenMap = require('./tokenmap.js');
+const { checkLeaderboard } = require('./checker');
+const CHANNEL_ID = '1127286900777025606';
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds]
 });
 
 client.once('ready', () => {
-  console.log(`Bot login sebagai ${client.user.tag}`);
+  console.log(`🤖 Bot login sebagai ${client.user.tag}`);
+
+  setInterval(() => {
+    checkLeaderboard(client, CHANNEL_ID).catch(console.error);
+  }, 60_000);
 });
 
 client.on('interactionCreate', async interaction => {
@@ -20,7 +27,10 @@ client.on('interactionCreate', async interaction => {
     const category = tokenMap[mode];
 
     if (!category) {
-      return interaction.reply({ content: 'Kategori ga ada', ephemeral: true });
+      return interaction.reply({
+        content: 'Kategori tidak ditemukan',
+        ephemeral: true
+      });
     }
 
     await interaction.deferReply();
@@ -30,7 +40,11 @@ client.on('interactionCreate', async interaction => {
 
     for (const token of category.tokens) {
       const data = await getLeaderBoard(token);
-      if (!playerList.length) playerList = data.playerList;
+
+      if (!playerList.length) {
+        playerList = data.playerList;
+      }
+
       allRuns.push(...data.runList);
     }
 
@@ -39,23 +53,20 @@ client.on('interactionCreate', async interaction => {
       return player?.areaId === 'id';
     });
 
-    let message =
-      `🏆 **${category.label} — Indonesia Leaderboard** 🏆\n\n`;
+    if (!filteredRuns.length) {
+      return interaction.editReply('Tidak ada runner Indonesia di kategori ini.');
+    }
 
-    filteredRuns.slice(0, 10).forEach((run, index) => {
+    const runsText = filteredRuns.slice(0, 100).map((run, index) => {
       const player = playerList.find(p => p.id === run.playerIds[0])?.name || 'Unknown';
       const pb = formatTime(run.time);
       const igt = formatTime(run.igt);
-      const video = run.video ? `<${run.video}>` : 'No Video';
+      const video = run.video ? `[INI GUYS VIDIONYA](<${run.video}>)` : 'No Video';
 
-      message +=
-        `**${index + 1}.** ${player}\n` +
-        `⏱ PB : ${pb}\n` +
-        `⏱ IGT: ${igt}\n` +
-        `🎥 ${video}\n\n`;
+      return `**${index + 1}.** ${player}\n⏱ PB: ${pb}\n⏱ IGT: ${igt}\n🎥 ${video}`;
     });
 
-    return interaction.editReply({ content: message });
+    return paginate(interaction, runsText, `🏆 ${category.label} — Indonesia Leaderboard 🏆`);
   }
 
   if (interaction.commandName === 'find') {
@@ -68,15 +79,11 @@ client.on('interactionCreate', async interaction => {
       for (const token of category.tokens) {
         const data = await getLeaderBoard(token);
 
-        for (let i = 0; i < data.runList.length; i++) {
-          const run = data.runList[i];
+        data.runList.forEach((run, i) => {
           const player = data.playerList.find(p => p.id === run.playerIds[0]);
-          if (!player) continue;
+          if (!player) return;
 
-          if (
-            player.areaId === 'id' &&
-            player.name.toLowerCase().includes(keyword)
-          ) {
+          if (player.areaId === 'id' && player.name.toLowerCase().includes(keyword)) {
             results.push({
               category: category.label,
               rank: i + 1,
@@ -84,25 +91,20 @@ client.on('interactionCreate', async interaction => {
               run
             });
           }
-        }
+        });
       }
     }
 
     if (!results.length) {
-      return interaction.editReply(`Runner **${keyword}** tidak ditemukan`);
+      return interaction.editReply(`Runner **${keyword}** tidak ditemukan atau dia bukan berasal dari Indonesia`);
     }
 
-    let message = `🔍 **Hasil Pencarian: ${keyword}**\n\n`;
-
-    results.forEach(r => {
-      message +=
-        `🎮 **${r.category}**\n` +
-        `🏆 Rank: #${r.rank}\n` +
-        `⏱ PB: ${formatTime(r.run.time)}\n` +
-        `🎥 ${r.run.video ? `<${r.run.video}>` : 'No Video'}\n\n`;
+    const resultsText = results.map(r => {
+        const video = r.run.video ? `[INI GUYS VIDIONYA](<${r.run.video}>)` : 'No Video';
+        return `🎮 **${r.category}**\n🏆 Rank: #${r.rank}\n⏱ PB: ${formatTime(r.run.time)}\n⏱ IGT: ${formatTime(r.run.igt)}\n🎥 ${video}`;
     });
 
-    return interaction.editReply({ content: message });
+    return paginate(interaction, resultsText, `🔍 Hasil Pencarian: ${keyword}`);
   }
 });
 
