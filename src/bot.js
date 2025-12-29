@@ -46,19 +46,22 @@ client.on('interactionCreate', async interaction => {
 
         let message = `🏆 **Speedrun Leaderboard (${mode.toUpperCase()}) Top 10** 🏆\n\n`;
 
-        listRun.slice(0, 10).forEach((run, index) => {
-            const player =
-            playerList.find(p => p.id === run.playerIds[0])?.name || 'Unknown';
+        listRun.slice(0, 50).forEach((run, index) => {
+            const playerObj = playerList.find(p => p.id === run.playerIds[0]);
+            if (!playerObj) return;
 
+            if (playerObj.areaId !== 'id') return;
+
+            const player = playerObj.name;
             const pb = formatTime(run.time);
             const igt = formatTime(run.igt);
             const video = run.video ? `<${run.video}>` : 'No Video';
 
             message +=
-            `**${index + 1}.** ${player}\n` +
-            `⏱ PB : ${pb}\n` +
-            `⏱ IGT: ${igt}\n` +
-            `🎥 [INI GUYS VIDIONYA](${video})\n\n`;
+                `**${index + 1}.** ${player}\n` +
+                `⏱ PB : ${pb}\n` +
+                `⏱ IGT: ${igt}\n` +
+                `🎥 [INI GUYS VIDIONYA](${video})\n\n`;
         });
 
         return interaction.editReply({
