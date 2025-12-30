@@ -5,7 +5,7 @@ const { formatTime } = require('./helpers/timeFormat');
 const { paginate } = require('./helpers/paginateMessage');
 const tokenMap = require('./tokenmap.js');
 const { checkLeaderboard } = require('./checker');
-const CHANNEL_ID = '1127286900777025606';
+const CHANNEL_ID = '1455387051800133642';
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds]
