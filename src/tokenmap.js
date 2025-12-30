@@ -36,6 +36,20 @@ module.exports = {
     ]
   },
 
+  swplus60: {
+    label: 'Separate Ways+ 60 FPS',
+    tokens: [
+      process.env.TOKEN_SW_PLUS_SFPS
+    ]
+  },
+
+  swplus30: {
+    label: 'Separate Ways+ 30 FPS',
+    tokens: [
+      process.env.TOKEN_SW_PLUS_TFPS
+    ]
+  },
+
   aa60: {
     label: 'Assignment Ada 60 FPS',
     tokens: [

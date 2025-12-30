@@ -24,6 +24,8 @@ const commands = [
                     {name : 'New Game+ 60 FPS', value: 'ngplus60'},
                     {name : 'Separate Ways 60 FPS', value: 'sw60'},
                     {name : 'Separate Ways 30 FPS', value: 'sw30'},
+                    {name : 'Separate Ways+ 60 FPS', value: 'swplus60'},
+                    {name : 'Separate Ways+ 30 FPS', value: 'swplus30'},
                     {name : 'Assigment Ada 60 FPS', value: 'aa60'},
                     {name : 'Assigment Ada 30 FPS', value: 'aa30'},
                 )
