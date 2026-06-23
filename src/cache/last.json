@@ -1267,6 +1267,245 @@
       ]
     }
   ],
+  "swplus60": [
+    {
+      "id": "y40gn4nz",
+      "gameId": "j1nem5x1",
+      "categoryId": "zd37egv2",
+      "time": 1284.1,
+      "igt": 1328,
+      "platformId": "8gej2n93",
+      "emulator": false,
+      "video": "https://youtu.be/KoDk1KrJgb0",
+      "submittedById": "j4pdz45j",
+      "verified": 1,
+      "verifiedById": "8dwlw3oj",
+      "reason": "",
+      "date": 1765869672,
+      "dateSubmitted": 1765869736,
+      "dateVerified": 1766157042,
+      "hasSplits": false,
+      "videoState": 0,
+      "obsolete": false,
+      "place": 9,
+      "issues": null,
+      "playerIds": [
+        "j4pdz45j"
+      ],
+      "valueIds": [
+        "klr7wj2q",
+        "gq78e5r1"
+      ]
+    },
+    {
+      "id": "y9wo8jrz",
+      "gameId": "j1nem5x1",
+      "categoryId": "zd37egv2",
+      "time": 1287.88,
+      "igt": 1333,
+      "platformId": "8gej2n93",
+      "emulator": false,
+      "video": "https://youtu.be/adn5xBusYNI?si=OBjktFd5AJ09RnDl",
+      "submittedById": "xyy0oomx",
+      "verified": 1,
+      "verifiedById": "8dwlw3oj",
+      "reason": "",
+      "date": 1751587200,
+      "dateSubmitted": 1758614502,
+      "dateVerified": 1758753592,
+      "hasSplits": false,
+      "videoState": 0,
+      "obsolete": false,
+      "place": 10,
+      "issues": null,
+      "playerIds": [
+        "xyy0oomx"
+      ],
+      "valueIds": [
+        "klr7wj2q",
+        "gq78e5r1"
+      ]
+    },
+    {
+      "id": "y8g1ld5z",
+      "gameId": "j1nem5x1",
+      "categoryId": "zd37egv2",
+      "time": 1339.68,
+      "igt": 1382,
+      "platformId": "8gej2n93",
+      "emulator": false,
+      "video": "https://youtu.be/JamQ9A185Tc",
+      "comment": "acc please, thx",
+      "submittedById": "x7mp09qx",
+      "verified": 1,
+      "verifiedById": "86rwk938",
+      "reason": "",
+      "date": 1747193298,
+      "dateSubmitted": 1747193470,
+      "dateVerified": 1747680112,
+      "hasSplits": false,
+      "videoState": 0,
+      "obsolete": false,
+      "place": 14,
+      "issues": null,
+      "playerIds": [
+        "x7mp09qx"
+      ],
+      "valueIds": [
+        "klr7wj2q",
+        "gq78e5r1"
+      ]
+    },
+    {
+      "id": "yoll7rdy",
+      "gameId": "j1nem5x1",
+      "categoryId": "zd37egv2",
+      "time": 1462,
+      "enforceMs": false,
+      "igt": 1487,
+      "platformId": "8gej2n93",
+      "emulator": false,
+      "video": "https://youtu.be/C5advjpyo48",
+      "comment": "**[Run retimed from 23:33.560 to 24:22 on 23/02/2025.](https://www.speedrun.com/re4steam/news/mxlged6p)**",
+      "submittedById": "8g0velpx",
+      "verified": 1,
+      "verifiedById": "8dwlw3oj",
+      "date": 1676116800,
+      "dateSubmitted": 1676096544,
+      "dateVerified": 1676310339,
+      "hasSplits": false,
+      "videoState": 0,
+      "obsolete": false,
+      "place": 26,
+      "issues": null,
+      "playerIds": [
+        "8g0velpx"
+      ],
+      "valueIds": [
+        "klr7wj2q",
+        "gq78e5r1"
+      ]
+    },
+    {
+      "id": "y8gql4xz",
+      "gameId": "j1nem5x1",
+      "categoryId": "zd37egv2",
+      "time": 1507.08,
+      "igt": 1670,
+      "platformId": "8gej2n93",
+      "emulator": false,
+      "video": "https://youtu.be/LZonXTLnzew",
+      "comment": "Mod note: Run starts at [2:20](https://youtu.be/LZonXTLnzew?t=140)",
+      "submittedById": "8eo5m9oj",
+      "verified": 1,
+      "verifiedById": "86rwk938",
+      "date": 1745539200,
+      "dateSubmitted": 1746034309,
+      "dateVerified": 1746242238,
+      "hasSplits": false,
+      "videoState": 0,
+      "obsolete": false,
+      "place": 31,
+      "issues": null,
+      "playerIds": [
+        "8eo5m9oj"
+      ],
+      "valueIds": [
+        "klr7wj2q",
+        "gq78e5r1"
+      ]
+    },
+    {
+      "id": "y213v1wz",
+      "gameId": "j1nem5x1",
+      "categoryId": "zd37egv2",
+      "time": 1646,
+      "igt": 1671,
+      "platformId": "8gej2n93",
+      "emulator": false,
+      "video": "https://youtu.be/PFTW-sF0Ec8",
+      "comment": "Newbie Speedrun, maybe the load time will be slightly off the mark\n\n**[Run retimed from 27:51 to 27:26 on 23/02/2025.](https://www.speedrun.com/re4steam/news/mxlged6p)**",
+      "submittedById": "1xy6qgmj",
+      "verified": 1,
+      "verifiedById": "e8ew29o8",
+      "date": 1559476800,
+      "dateSubmitted": 1559465667,
+      "dateVerified": 1559468637,
+      "hasSplits": false,
+      "videoState": 0,
+      "obsolete": false,
+      "place": 37,
+      "issues": null,
+      "playerIds": [
+        "1xy6qgmj"
+      ],
+      "valueIds": [
+        "klr7wj2q",
+        "gq78e5r1"
+      ]
+    }
+  ],
+  "swplus30": [
+    {
+      "id": "m329qjgy",
+      "gameId": "j1nem5x1",
+      "categoryId": "zd37egv2",
+      "time": 1374.13,
+      "igt": 1426,
+      "platformId": "8gej2n93",
+      "emulator": false,
+      "video": "https://youtu.be/J2f9I61Qg0M?si=bRP_Yk7oLtWd-IWh",
+      "comment": "**[Mod note] Theres a big window blocking the game from 21:10 until the end of the run. Get rid of this or at least make it smaller for future submissions.**",
+      "submittedById": "xyy0oomx",
+      "verified": 1,
+      "verifiedById": "8dwlw3oj",
+      "date": 1758614576,
+      "dateSubmitted": 1758614638,
+      "dateVerified": 1758838988,
+      "hasSplits": false,
+      "videoState": 0,
+      "obsolete": false,
+      "place": 3,
+      "issues": null,
+      "playerIds": [
+        "xyy0oomx"
+      ],
+      "valueIds": [
+        "21dd74j1",
+        "gq78e5r1"
+      ]
+    },
+    {
+      "id": "mrxq6d7m",
+      "gameId": "j1nem5x1",
+      "categoryId": "zd37egv2",
+      "time": 1534,
+      "igt": 1574,
+      "platformId": "8gej2n93",
+      "emulator": false,
+      "video": "https://youtu.be/eEs4QML3VNc",
+      "comment": "**[Run retimed from 24:20.790 to 25:34 on 23/02/2025.](https://www.speedrun.com/re4steam/news/mxlged6p)**",
+      "submittedById": "xyq44gv8",
+      "verified": 1,
+      "verifiedById": "86rwk938",
+      "reason": "",
+      "date": 1720878646,
+      "dateSubmitted": 1720879247,
+      "dateVerified": 1720919448,
+      "hasSplits": false,
+      "videoState": 0,
+      "obsolete": false,
+      "place": 7,
+      "issues": null,
+      "playerIds": [
+        "xyq44gv8"
+      ],
+      "valueIds": [
+        "21dd74j1",
+        "gq78e5r1"
+      ]
+    }
+  ],
   "aa60": [
     {
       "id": "yod807dm",
